@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -52,6 +53,14 @@ class Article
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+    }
+
+    #[ORM\PrePersist]
+    public function prePersist(): void
+    {
+        $this->createdAt = new \DateTime();
+        $this->slug = (new Slugify())->slugify($this->title);
     }
 
     public function getId(): ?int
@@ -85,15 +94,21 @@ class Article
 
     public function getSlug(): ?string
     {
+        if (!$this->slug) {
+            $this->setSlug($this->title);
+        }
         return $this->slug;
     }
 
-    public function setSlug(?string $slug): self
+
+    public function setSlug(string $slug): self
     {
-        $this->slug = $slug;
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($slug);
 
         return $this;
     }
+
 
     public function getFeaturedText(): ?string
     {

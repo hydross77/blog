@@ -51,7 +51,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->publish = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->updateAt = new \DateTime();
     }
+
+    #[ORM\PrePersist]
+    public function prePersist(): void
+    {
+        $this->createdAt = new \DateTime();
+    }
+
+
+    #[ORM\PreUpdate]
+    public function preUpdate(): void
+    {
+        $this->updateAt = new \DateTime();
+    }
+
 
     public function getId(): ?int
     {
@@ -218,4 +234,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 }

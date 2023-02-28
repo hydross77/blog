@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -20,6 +21,20 @@ class ArticleRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Article::class);
+    }
+
+    /**
+     * Récupère les freelances en lien avec une recherche
+     * @return Query
+     */
+    public function findSearch(array $parameters): Query //parameters est le tableau
+    {
+        $qb = $this->createQueryBuilder('a');
+        if (!empty($parameters['article'])) {
+            $qb->andWhere('a.id LIKE :id')
+                ->setParameter('id', "%{$parameters['article']}%");
+        }
+        return $qb->getQuery();
     }
 
     public function save(Article $entity, bool $flush = false): void

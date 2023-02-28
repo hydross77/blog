@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechercher un article{% endblock %}
+
+{% block body %}
+
+    {% include 'search/_filter.html.twig' with {form: searchArticle} only %}
+
+{% endblock %}

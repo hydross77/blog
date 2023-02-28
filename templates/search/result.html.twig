@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resultat{% endblock %}
+
+{% block body %}
+    {% if articles is not empty %}
+            {% for article in articles %}
+                {% include 'search/_card.html.twig' with {article: article, user: user} only %}
+            {% endfor %}
+    {% else %}
+        Aucun article
+    {% endif %}
+
+    <div class="pagination">
+        {{ knp_pagination_render(articles) }}
+    </div>
+
+{% endblock %}

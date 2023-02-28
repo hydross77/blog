@@ -1,0 +1,69 @@
+* {
+    font-family: Raleway, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    color: #f5f2ef;
+    align-items: center;
+    padding: 10px;
+}
+}
+
+nav a:hover {
+    color: #f5f2ef;
+    text-decoration: none;
+}
+
+nav .navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+.btn1 {
+    color: #1c1c1c;
+    text-decoration: none;
+}
+
+.btn1:hover {
+    font-weight: bold;
+    color: #1c1c1c;
+}
+
+.btn2 {
+    color: #c40000;
+    text-decoration: none;
+}
+
+.btn2:hover {
+    font-weight: bold;
+    color: #c40000;
+}
+
+.btn3 {
+    color: #eb6440;
+    text-decoration: none;
+}
+
+.btn3:hover {
+    font-weight: bold;
+    color: #eb6440;
+}
+
+.btn7{
+    text-decoration: none;
+    color: white;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn7:hover {
+    background-color: rgba(28, 28, 28, 0.84);
+}
+
+/* --- FIN NAVBAR --- */

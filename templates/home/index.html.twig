@@ -7,4 +7,10 @@
     {% for cat in category %}
         <a href="{{ path('show_category', {'id': cat.id}) }}">{{ cat.name }}</a>
     {% endfor %}
+
+    <h2>Les 10 derniers articles</h2>
+    {% for article in articlesTen %}
+        ICI.
+        <a href="{{ path('show_article', {'slug': article.slug}) }}">{{ article.title }}</a>
+    {% endfor %}
 {% endblock %}

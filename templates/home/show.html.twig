@@ -6,7 +6,7 @@
     <h2>Article dans la catégorie {{ category.name }}</h2>
     {% if category.articles | length > 0 %}
         {% for article in category.articles %}
-            <a href="{{ path('show_article', {'id': article.id}) }}">{{ article.title }}</a>
+            <a href="{{ path('show_article', {'slug': article.slug}) }}">{{ article.title }}</a>
         {% endfor %}
     {% else %}
         <p>Aucune article !</p>

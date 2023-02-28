@@ -14,6 +14,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
  */
 class UserFixture extends Fixture
 {
+    public const AUTHOR_USER_REFERENCE = 'author-user';
+
     private $encoder;
 
     public function __construct(UserPasswordHasherInterface $encoder)
@@ -54,5 +56,7 @@ class UserFixture extends Fixture
         }
 
         $manager->flush();
+
+        $this->addReference(self::AUTHOR_USER_REFERENCE, $author);
     }
 }

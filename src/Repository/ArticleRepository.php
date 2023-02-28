@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -38,6 +39,30 @@ class ArticleRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    /**
+     * @return Article[]
+     */
+    public function articlesTen(): array
+    {
+        return $this->allArticles()
+            ->setMaxResults(10)
+            ->orderBy('a.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    private function allArticles(): QueryBuilder
+    {
+        return $this->createQueryBuilder('a')
+            ;
+    }
+
+
 
 //    /**
 //     * @return Article[] Returns an array of Article objects

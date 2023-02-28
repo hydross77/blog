@@ -11,6 +11,6 @@
     <h2>Les 10 derniers articles</h2>
     {% for article in articlesTen %}
         ICI.
-        <a href="{{ path('show_article', {'id': article.id}) }}">{{ article.title }}</a>
+        <a href="{{ path('show_article', {'slug': article.slug}) }}">{{ article.title }}</a>
     {% endfor %}
 {% endblock %}

@@ -1,10 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Session{% endblock %}
+{% block title %}Article{% endblock %}
 
 {% block body %}
 
     <h2>Article : {{article.title}}</h2>
     {{ article.content }}
 
+    <hr>
+
+    <h2>Commentaires</h2>
+    {% for co in comment %}
+        {{ co.content }}
+    {% endfor %}
+
+    <h2>Ajouter un commentaire</h2>
+    {% if app.user %}
+    {{ form(form) }}
+    {% else %}
+    Connectez vous pour commenter!
+    {% endif %}
 {% endblock %}

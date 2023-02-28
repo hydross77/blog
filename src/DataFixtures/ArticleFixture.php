@@ -37,7 +37,7 @@ class ArticleFixture extends Fixture implements DependentFixtureInterface
                 ->setContent($faker->sentences(3, true))
                 ->setFeatureImage($faker->randomElement(['numerique.png']))
                 ->setStatus(1)
-               // ->setUser($this->getReference(UserFixture::AUTHOR))
+                ->setUser($this->getReference(UserFixture::AUTHOR_USER_REFERENCE))
                 ->setFeaturedText($faker->sentence())
                 ->setBelong($category)
                 ->setSlug($this->sluggerInterface->slug($article->getTitle()))

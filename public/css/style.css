@@ -2,6 +2,10 @@
     font-family: Raleway, sans-serif;
 }
 
+.wrapper {
+    margin: 50px;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -9,7 +13,6 @@ nav {
     color: #f5f2ef;
     align-items: center;
     padding: 10px;
-}
 }
 
 nav a:hover {

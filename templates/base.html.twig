@@ -16,10 +16,6 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
     </head>
     <header>
         <nav>
@@ -36,7 +32,7 @@
                     {% endif %}
                     {% if app.user %}
                         <li>
-                            <a class="btn1" href="{{ path('app_category') }}">Catégorie</a>
+                            <a class="btn7" href="{{ path('app_home') }}">Rechercher un article</a>
                         </li>
                         <li>
                             <a class="btn1" href="{{ path('app_logout') }}">Déconnexion</a>
@@ -57,6 +53,20 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     {% endfor %}
+    <div class="wrapper">
         {% block body %}{% endblock %}
+    </div>
+
+    {% block javascripts %}
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRiHKpx4yHpgxRuzBdY72UzyLgBA8aBhA&libraries=places"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6Ld0FiIkAAAAABNn3uVj7xBf5SQQ4xmh_ZOocfo3"></script>
+        <script src="https://kit.fontawesome.com/81ab4e445e.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+                integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+                crossorigin="anonymous"></script>
+    {% endblock %}
     </body>
 </html>

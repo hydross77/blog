@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h2>Article dans la catégorie {{ category.name }}</h2>
+    {% if category.articles | length > 0 %}
+        {% for article in category.articles %}
+            <a href="{{ path('show_article', {'id': article.id}) }}">{{ article.title }}</a>
+        {% endfor %}
+    {% else %}
+        <p>Aucune article !</p>
+    {% endif %}
+{% endblock %}
+
